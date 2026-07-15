@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LLM Assignment Summary</title>
+<style>
+body{
+font-family:Arial;
+margin:40px;
+line-height:1.6;
+}
+table{
+border-collapse:collapse;
+}
+td,th{
+border:1px solid black;
+padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>LLM Assignment Summary</h1>
+
+<h2>Objective</h2>
+
+<p>
+Optimize a transformer language model under strict limits of
+2000 optimizer steps and 2 million parameters.
+</p>
+
+<h2>Experiments</h2>
+
+<table>
+
+<tr>
+<th>Experiment</th>
+<th>BPB</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Baseline</td>
+<td>2.3718</td>
+<td>Submitted</td>
+</tr>
+
+<tr>
+<td>AdamW + Scheduler</td>
+<td>2.6083</td>
+<td>Rejected</td>
+</tr>
+
+<tr>
+<td>Weight Tying</td>
+<td>2.4122</td>
+<td>Rejected</td>
+</tr>
+
+<tr>
+<td>Xavier Initialization</td>
+<td>2.4073</td>
+<td>Rejected</td>
+</tr>
+
+</table>
+
+<h2>Observations</h2>
+
+<ul>
+<li>Baseline remained the strongest performing configuration.</li>
+<li>Weight tying reduced parameters but slightly reduced accuracy.</li>
+<li>Learning-rate scheduling did not help within 2000 optimization steps.</li>
+<li>Xavier initialization produced stable training but no BPB improvement.</li>
+</ul>
+
+<h2>Final Submission</h2>
+
+<ul>
+<li>Tokenizer: Original Byte Tokenizer</li>
+<li>Optimizer: Adam</li>
+<li>Training Steps: 2000</li>
+<li>Parameters: 1,339,840</li>
+<li>Final BPB: 2.3718</li>
+</ul>
+
+</body>
+</html>
